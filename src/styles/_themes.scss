@@ -1,0 +1,24 @@
+@mixin light-theme {
+  --color-bg: #e1d4c9;
+  --color-text: #403f3d;
+  --color-accent: #b0907a;
+  --border-primary: #c1b6ad;
+  --border-inverse: #665f55;
+
+  --theme-button-sun: #b0907a;
+  --theme-button-moon: none;
+  --sun: #e1d4c9;
+  --moon: #403f3d;
+}
+
+@mixin dark-theme {
+  --color-bg: #292826;
+  --color-text: #e1d4c9;
+  --border-primary: #665f55;
+  --border-inverse: #c1b6ad;
+
+  --theme-button-sun: none;
+  --theme-button-moon: #b0907a;
+  --sun: #e1d4c9;
+  --moon: #e1d4c9;
+}

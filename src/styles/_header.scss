@@ -1,0 +1,121 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 20px 0px;
+}
+
+.logo-text {
+  fill: var(--color-text);
+  width: 92.51385498046875px;
+  height: 22.341798782348633px;
+}
+
+.logo-box {
+  width: 100px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.logo-wrapper {
+  position: relative;
+  margin-bottom: 13.2px;
+  .logo-circle {
+    background-color: var(--color-accent);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+  }
+}
+
+.logo-name {
+  fill: var(--color-text);
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+
+  gap: 40px;
+  li {
+    cursor: pointer;
+  }
+}
+
+%button-theme {
+  width: 36px;
+  height: 36px;
+  border-radius: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-slider {
+  width: 88px;
+  height: 44px;
+  border: solid 1px var(--border-primary);
+  border-radius: 100px;
+  padding: 3px;
+
+  display: flex;
+  justify-content: space-between;
+
+  .light-button {
+    @extend %button-theme;
+    background-color: var(--theme-button-sun);
+    .sun {
+      fill: var(--sun);
+    }
+  }
+
+  .dark-button {
+    @extend %button-theme;
+    background-color: var(--theme-button-moon);
+    .moon {
+      fill: var(--moon);
+    }
+  }
+}
+
+.h-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.menu {
+  width: 72px;
+  height: 28px;
+
+  display: flex;
+  gap: 8px;
+  align-items: start;
+
+  p {
+    align-self: center;
+    color: var(--color-text);
+  }
+  .cup {
+    stroke: var(--color-text);
+  }
+}

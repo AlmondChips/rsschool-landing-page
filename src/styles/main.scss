@@ -21,6 +21,7 @@ html {
   background-color: var(--color-bg);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+  color: var(--color-text);
   font-weight: 600;
   font-style: normal;
 }
@@ -31,4 +32,38 @@ body {
 
 .app {
   @extend %align-center;
+}
+
+.greeting {
+  background-image: url("../assets/img-hero.jpg");
+  height: 644px;
+  background-position: center;
+
+  border-radius: 40px;
+  margin-top: 20px;
+  padding: 100px;
+}
+
+.greet-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 530px;
+
+  color: var(--color-text-inverse);
+  h1 {
+    padding-bottom: 40px;
+  }
+
+  p {
+    padding-bottom: 40px;
+  }
+
+  button {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: 100px;
+    max-width: 200px;
+    text-align: center;
+    padding: 20px 78px;
+  }
 }

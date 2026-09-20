@@ -123,3 +123,10 @@ header {
     stroke: var(--color-text);
   }
 }
+
+@media screen and (max-width: 815px) {
+  .nav {
+    justify-content: space-between;
+    gap: 0px;
+  }
+}

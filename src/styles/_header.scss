@@ -1,9 +1,20 @@
+@use "buttons";
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
   padding: 20px 0px;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+
+  background-color: var(--color-bg);
+}
+
+.burger {
+  display: none;
 }
 
 .logo-text {
@@ -52,7 +63,6 @@ header {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  color: var(--color-text);
 
   gap: 40px;
   li {
@@ -77,8 +87,6 @@ header {
 .theme-slider {
   width: 88px;
   height: 44px;
-  border: solid 1px var(--border-primary);
-  border-radius: 100px;
   padding: 3px;
 
   display: flex;
@@ -87,16 +95,30 @@ header {
   .light-button {
     @extend %button-theme;
     background-color: var(--theme-button-sun);
+    transition-duration: 0.8s;
     .sun {
       fill: var(--sun);
+      transition-duration: 0.8s;
+    }
+    &:hover {
+      background-color: var(--sun-hover);
     }
   }
 
   .dark-button {
     @extend %button-theme;
     background-color: var(--theme-button-moon);
+
+    transition-duration: 0.8s;
     .moon {
       fill: var(--moon);
+      transition-duration: 0.8s;
+    }
+    &:hover {
+      background-color: var(--moon-hover);
+      & .moon {
+        fill: var(--sun);
+      }
     }
   }
 }
@@ -119,14 +141,46 @@ header {
     align-self: center;
     color: var(--color-text);
   }
-  .cup {
-    stroke: var(--color-text);
+}
+
+.cup {
+  stroke: var(--color-text);
+}
+
+@media screen and (max-width: 911px) {
+  .nav {
+    justify-content: center;
+    gap: 5px;
+
+    flex-wrap: wrap;
   }
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 768px) {
   .nav {
-    justify-content: space-between;
-    gap: 0px;
+    display: none;
+  }
+
+  .h-wrapper {
+    .menu {
+      display: none;
+    }
+  }
+
+  .burger {
+    display: block;
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.border-themed {
+      @include buttons.link-button-stroke(
+        var(--border-inverse),
+        var(--color-text)
+      );
+    }
   }
 }

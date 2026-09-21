@@ -1,11 +1,10 @@
 @use "themes";
 @use "reset";
 @use "header";
-
-%align-center {
-  max-width: 1440px;
-  margin: 0 auto;
-}
+@use "text";
+@use "main-front-page";
+@use "footer";
+@use "menu";
 
 :root {
   @include themes.light-theme;
@@ -24,46 +23,22 @@ html {
   color: var(--color-text);
   font-weight: 600;
   font-style: normal;
+
+  scroll-behavior: smooth;
 }
 
 body {
   padding: 0px 40px;
+  position: relative;
+}
+
+.border-themed {
+  border-radius: 100px;
+  border: solid 1px var(--border-primary);
 }
 
 .app {
-  @extend %align-center;
-}
-
-.greeting {
-  background-image: url("../assets/img-hero.jpg");
-  height: 644px;
-  background-position: center;
-
-  border-radius: 40px;
-  margin-top: 20px;
-  padding: 100px;
-}
-
-.greet-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 530px;
-
-  color: var(--color-text-inverse);
-  h1 {
-    padding-bottom: 40px;
-  }
-
-  p {
-    padding-bottom: 40px;
-  }
-
-  button {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    border-radius: 100px;
-    max-width: 200px;
-    text-align: center;
-    padding: 20px 78px;
-  }
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
 }

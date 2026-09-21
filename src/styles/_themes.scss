@@ -1,8 +1,33 @@
+// LIGHT-THEME
+$text-primary: #403f3d;
+$text-iverse: #e1d4c9;
+$text-accent: #b0907a;
+
+$bg-page: #e1d4c9;
+$bg-container: #665f55;
+$bg-overlay: #403f3dcc;
+
+$border-primary: #c1b6ad;
+$border-inverse: #665f55;
+
+// DARK-THEME
+$D-text-primary: #e1d4c9;
+$D-text-iverse: #e1d4c9;
+$D-text-accent: #b0907a;
+
+$D-bg-page: #292826;
+$D-bg-container: #403f3d;
+$D-bg-overlay: #292826cc;
+
+$D-border-primary: #665f55;
+$D-border-inverse: #c1b6ad;
+
 @mixin light-theme {
   --color-bg: #e1d4c9;
   --color-text: #403f3d;
   --color-text-inverse: #e1d4c9;
   --color-accent: #b0907a;
+
   --border-primary: #c1b6ad;
   --border-inverse: #665f55;
 
@@ -10,6 +35,11 @@
   --theme-button-moon: none;
   --sun: #e1d4c9;
   --moon: #403f3d;
+
+  --moon-hover: #665f55;
+  --sun-hover: #b0907a;
+
+  --bg-container: #665f55;
 }
 
 @mixin dark-theme {
@@ -22,4 +52,9 @@
   --theme-button-moon: #b0907a;
   --sun: #e1d4c9;
   --moon: #e1d4c9;
+
+  --moon-hover: #b0907a;
+  --sun-hover: #403f3d;
+
+  --bg-container: #403f3d;
 }

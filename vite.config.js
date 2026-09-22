@@ -14,5 +14,6 @@ export default defineConfig({
         menu: resolve(__dirname, "./src/pages/menu.html"),
       },
     },
+    sourcemap: true,
   },
 });

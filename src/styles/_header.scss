@@ -152,11 +152,6 @@ header {
   stroke: var(--color-text);
 }
 
-@media screen and (max-width: 911px) {
-  .nav {
-  }
-}
-
 @media screen and (max-width: 768px) {
   .nav {
     display: none;

@@ -28,7 +28,6 @@ html {
 }
 
 body {
-  padding: 0px 40px;
   position: relative;
 }
 
@@ -41,4 +40,10 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
+}
+
+@media screen and (max-width: 676px) {
+  .app {
+    padding: 0 16px;
+  }
 }

@@ -6,6 +6,6 @@ const menuBtn = document.querySelector("button.greeting-menu");
 
 if (menuBtn) {
   menuBtn.addEventListener("click", () => {
-    window.location.href = "./src/pages/menu.html";
+    window.location.href = import.meta.env.BASE_URL + "src/pages/menu.html";
   });
 }

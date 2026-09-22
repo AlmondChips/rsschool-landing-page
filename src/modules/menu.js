@@ -1,20 +1,26 @@
 import { menu } from "./menuList";
 
-const [btnCoffee, btnTea, btnDessert] = document.querySelectorAll(".m-btn");
-const menuList = document.querySelector(".menu-list");
+let menuList;
 
-[btnCoffee, btnTea, btnDessert].forEach((btn) => {
-  const text = btn.childNodes[3].textContent.toLowerCase();
+function initPage() {
+  if (!window.location.href.includes("menu")) return false;
+  const [btnCoffee, btnTea, btnDessert] = document.querySelectorAll(".m-btn");
+  menuList = document.querySelector(".menu-list");
 
-  btn.addEventListener("click", () => {
-    [btnCoffee, btnTea, btnDessert].forEach((btn2) => {
-      btn2.classList.remove("selected");
+  [btnCoffee, btnTea, btnDessert].forEach((btn) => {
+    const text = btn.childNodes[3].textContent.toLowerCase();
+
+    btn.addEventListener("click", () => {
+      [btnCoffee, btnTea, btnDessert].forEach((btn2) => {
+        btn2.classList.remove("selected");
+      });
+      btn.classList.add("selected");
+      menuList.textContent = "";
+      drawMenu(text);
     });
-    btn.classList.add("selected");
-    menuList.textContent = "";
-    drawMenu(text);
   });
-});
+  return true;
+}
 
 function drawCard(item) {
   const card = document.createElement("div");
@@ -61,4 +67,4 @@ function drawMenu(type = "coffee") {
   });
 }
 
-drawMenu();
+initPage() && drawMenu();

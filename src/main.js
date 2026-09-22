@@ -1,5 +1,6 @@
 import "./styles/main.scss";
 import "./modules/theme";
+import "./modules/menu.js";
 
 const menuBtn = document.querySelector("button.greeting-menu");
 

@@ -95,3 +95,9 @@ footer {
     padding: 60px;
   }
 }
+
+@media screen and (max-width: 676px) {
+  footer {
+    gap: 40px;
+  }
+}

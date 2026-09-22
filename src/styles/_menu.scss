@@ -1,5 +1,9 @@
 @use "buttons";
 
+.mobile-br {
+  display: none;
+}
+
 .menu-main {
   display: flex;
   flex-direction: column;
@@ -108,5 +112,11 @@
 @media screen and (max-width: 819px) {
   .menu-card:nth-child(n + 5) {
     display: none;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .mobile-br {
+    display: inline;
   }
 }

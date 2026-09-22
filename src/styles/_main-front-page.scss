@@ -269,10 +269,10 @@
 @media screen and (max-width: 911px) {
   .greeting {
     padding: 60px 100px 98px 100px;
+  }
 
-    h1 {
-      font-size: 60px;
-    }
+  h1 {
+    font-size: 60px;
   }
 }
 
@@ -307,5 +307,39 @@
     .photo-column:last-child .img-wrapper:first-child {
       display: none;
     }
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .greeting {
+    padding: 60px 16px;
+    height: 552px;
+  }
+
+  .slider {
+    justify-content: center;
+    button {
+      display: none;
+    }
+
+    .option h3:nth-child(2n) {
+      margin-bottom: 16px;
+    }
+
+    .option {
+      max-width: 348px;
+
+      img {
+        height: 348px;
+      }
+    }
+  }
+
+  .download-desc {
+    width: 100%;
+  }
+
+  .btn-container {
+    flex-direction: column;
   }
 }

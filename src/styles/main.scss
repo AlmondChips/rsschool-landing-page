@@ -1,0 +1,49 @@
+@use "themes";
+@use "reset";
+@use "header";
+@use "text";
+@use "main-front-page";
+@use "footer";
+@use "menu";
+
+:root {
+  @include themes.light-theme;
+  color-scheme: light;
+
+  &.dark {
+    @include themes.dark-theme;
+    color-scheme: dark;
+  }
+}
+
+html {
+  background-color: var(--color-bg);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--color-text);
+  font-weight: 600;
+  font-style: normal;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+
+.border-themed {
+  border-radius: 100px;
+  border: solid 1px var(--border-primary);
+}
+
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media screen and (max-width: 676px) {
+  .app {
+    padding: 0 16px;
+  }
+}

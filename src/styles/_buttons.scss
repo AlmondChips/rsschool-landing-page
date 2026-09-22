@@ -1,0 +1,77 @@
+@mixin link-button($border-color, $text-color) {
+  border: solid 1px $border-color;
+  background-color: unset;
+  color: $text-color;
+  border-radius: 100px;
+
+  cursor: pointer;
+
+  svg {
+    fill: $text-color;
+  }
+}
+
+@mixin link-button-stroke($border-color, $text-color) {
+  border: solid 1px $border-color;
+  background-color: unset;
+  color: $text-color;
+  border-radius: 100px;
+
+  cursor: pointer;
+
+  svg {
+    stroke: $text-color;
+  }
+}
+
+.link {
+  transition: text-decoration-color 1s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: transparent;
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.coffee-link,
+.contact-link {
+  transition: border-color 1s ease;
+  border-bottom: solid 2px;
+  border-color: transparent;
+
+  cursor: pointer;
+
+  &:hover {
+    text-decoration-color: currentColor;
+    border-bottom: solid 2px;
+  }
+}
+
+@mixin animate-hover($bg-color, $text-color, $border-color) {
+  transition: all 0.6s ease;
+
+  &:hover {
+    background-color: $bg-color;
+    color: $text-color;
+    border-color: $border-color;
+
+    svg {
+      fill: $text-color;
+    }
+  }
+}
+
+@mixin animate-hover-stroke($bg-color, $text-color, $border-color) {
+  transition: all 0.6s ease;
+
+  &:hover {
+    background-color: $bg-color;
+    color: $text-color;
+    border-color: $border-color;
+
+    svg {
+      stroke: $text-color;
+    }
+  }
+}

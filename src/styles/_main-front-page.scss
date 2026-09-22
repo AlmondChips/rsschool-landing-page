@@ -1,0 +1,345 @@
+@use "buttons";
+
+.greeting {
+  height: 644px;
+  background-position: center;
+
+  border-radius: 40px;
+  margin-top: 20px;
+  padding: 100px;
+
+  position: relative;
+
+  video {
+    border-radius: inherit;
+    z-index: -2;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::before {
+    border-radius: inherit;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-overlay);
+  }
+}
+
+%align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.greet-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 530px;
+
+  color: var(--color-text-inverse);
+  h1 {
+    padding-bottom: 40px;
+  }
+
+  p {
+    padding-bottom: 40px;
+  }
+
+  button {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: 100px;
+    max-width: 200px;
+    padding: 20px 0px;
+    width: 100%;
+  }
+}
+
+.slider-container {
+  text-align: center;
+  margin: 100px 0px;
+
+  h2 {
+    margin-bottom: 40px;
+  }
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: unset;
+
+    svg {
+      stroke: var(--color-text);
+    }
+
+    @include buttons.animate-hover-stroke(
+      var(--bg-container),
+      var(--color-text-inverse),
+      var(--bg-container)
+    );
+  }
+
+  .arrow-right {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.option {
+  max-width: 480px;
+
+  img {
+    height: 480px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    margin-bottom: 16px;
+  }
+  p {
+    margin-bottom: 16px;
+  }
+  h3:nth-child(2n) {
+    margin-bottom: 40px;
+  }
+}
+
+.choice-container {
+  @extend %align-center;
+  gap: 12px;
+
+  .selector {
+    border: none;
+    width: 40px;
+    height: 4px;
+    background-color: var(--border-primary);
+  }
+
+  .selected {
+    background-color: var(--border-inverse);
+  }
+}
+
+.gallery-container {
+  h2 {
+    text-align-last: justify;
+    text-align: justify;
+    margin-bottom: 40px;
+  }
+  margin-bottom: 100px;
+}
+
+.gallery-grid {
+  --gap: 40px;
+  display: grid;
+  height: 1060px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+
+  .photo-column {
+    display: grid;
+    min-height: 0;
+    overflow: hidden;
+    gap: var(--gap);
+
+    .img-wrapper {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    img {
+      z-index: -1;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transform: scale(1.1);
+      transition: all 0.6s ease-in-out;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .photo-column:first-child {
+    display: grid;
+    grid-template-rows: 590px 430px;
+    gap: var(--gap);
+  }
+  .photo-column:last-child {
+    display: grid;
+    grid-template-rows: 430px 590px;
+    gap: 40px;
+  }
+}
+
+.download-app {
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+
+  img {
+    width: 630px;
+  }
+
+  .download-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+
+    .btn-container {
+      display: flex;
+      justify-content: start;
+      gap: 20px;
+      button {
+        @include buttons.link-button(var(--border-inverse), var(--color-text));
+        @include buttons.animate-hover(
+          var(--bg-container),
+          var(--color-text-inverse),
+          var(--bg-container)
+        );
+        width: 200px;
+        height: 64px;
+
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        gap: 8px;
+
+        .btn-text {
+          text-align: start;
+        }
+      }
+    }
+  }
+}
+
+.greeting-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cup {
+    display: block;
+    width: 0px;
+    transition: width 0.5s ease;
+    margin-left: 8px;
+  }
+
+  &:hover {
+    .cup {
+      width: 20px;
+    }
+  }
+}
+
+#mobile,
+#about,
+#favorite-coffee {
+  scroll-margin-top: 100px;
+}
+
+@media screen and (max-width: 1315px) {
+  #mobile {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 911px) {
+  .greeting {
+    padding: 60px 100px 98px 100px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .download-app {
+    img {
+      width: 100%;
+    }
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 688px);
+
+    height: unset;
+
+    .photo-column:first-child {
+      display: grid;
+      grid-template-rows: 688px 0;
+      gap: var(--gap);
+    }
+    .photo-column:last-child {
+      display: grid;
+      grid-template-rows: 688px 0;
+      gap: 40px;
+    }
+
+    .photo-column:first-child .img-wrapper:last-child {
+      display: none;
+    }
+
+    .photo-column:last-child .img-wrapper:first-child {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .greeting {
+    padding: 60px 16px;
+    height: 552px;
+  }
+
+  .slider {
+    justify-content: center;
+    button {
+      display: none;
+    }
+
+    .option h3:nth-child(2n) {
+      margin-bottom: 16px;
+    }
+
+    .option {
+      max-width: 348px;
+
+      img {
+        height: 348px;
+      }
+    }
+  }
+
+  .download-desc {
+    width: 100%;
+  }
+
+  .btn-container {
+    flex-direction: column;
+  }
+}

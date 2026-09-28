@@ -1,4 +1,5 @@
 import { menu } from "./menuList";
+import { menuResize, resetShowBtn } from "./menuLogic";
 
 let menuList;
 
@@ -65,6 +66,8 @@ function drawMenu(type = "coffee") {
   selectedType.forEach((item) => {
     drawCard(item);
   });
+  resetShowBtn();
+  menuResize();
 }
 
 initPage() && drawMenu();

@@ -129,6 +129,8 @@
     width: 40px;
     height: 4px;
     background-color: var(--border-primary);
+
+    transition: background-color 0.3s;
   }
 
   .selected {
@@ -260,6 +262,19 @@
   scroll-margin-top: 100px;
 }
 
+.slider-wrapper {
+  display: flex;
+  justify-content: center;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+
+.option {
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 1315px) {
   #mobile {
     flex-direction: column;
@@ -281,6 +296,13 @@
     img {
       width: 100%;
     }
+  }
+
+  .slider button {
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto;
   }
 
   .gallery-grid {

@@ -1,6 +1,7 @@
 import "./styles/main.scss";
 import "./modules/theme";
 import "./modules/menu.js";
+import "./modules/slider.js";
 
 const menuBtn = document.querySelector("button.greeting-menu");
 const burgerBtn = document.querySelector("input#burger");
@@ -30,14 +31,7 @@ if (burgerBtn) {
   );
 }
 
-window.onresize = () => {
-  console.log(window.innerWidth, window.outerWidth);
-
-  if (window.innerWidth >= 769) {
-    burgerBtn.checked = false;
-    updateMobileNav();
-  }
-};
+window.addEventListener("resize", indexResize);
 
 mobileMenu.addEventListener("click", (e) => {
   const target = e.target;
@@ -87,4 +81,13 @@ function openMobNav() {
   mobileMenu.classList.add("open");
   body.classList.add("no-scroll");
   burgerBtn.checked = true;
+}
+
+function indexResize() {
+  console.log(window.innerWidth, window.outerWidth);
+
+  if (window.innerWidth >= 769) {
+    burgerBtn.checked = false;
+    updateMobileNav();
+  }
 }

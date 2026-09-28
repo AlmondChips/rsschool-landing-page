@@ -15,9 +15,7 @@ export function menuResize() {
 
   const menuItems = document.querySelectorAll(".menu-card:nth-child(n + 5)");
 
-  console.log("menu resize invoked", userAllowVisibility, !!menuItems);
   if (window.innerWidth < 1090 && !userAllowVisibility) {
-    console.log(menuItems);
     menuItems.forEach((item) => {
       item.classList.add("hidden");
     });

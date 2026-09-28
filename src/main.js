@@ -2,6 +2,7 @@ import "./styles/main.scss";
 import "./modules/theme";
 import "./modules/menu.js";
 import "./modules/slider.js";
+import { isModalOpen } from "./modules/menuModal.js";
 
 const menuBtn = document.querySelector("button.greeting-menu");
 const burgerBtn = document.querySelector("input#burger");
@@ -23,7 +24,6 @@ if (burgerBtn) {
   burgerBtn.addEventListener(
     "click",
     (e) => {
-      console.log(1);
       e.stopImmediatePropagation();
       updateMobileNav();
     },
@@ -35,7 +35,6 @@ window.addEventListener("resize", indexResize);
 
 mobileMenu.addEventListener("click", (e) => {
   const target = e.target;
-  console.log(target.classList);
   if ([...target.classList].includes("link")) {
     updateMobileNav("remove");
   }
@@ -72,6 +71,7 @@ function updateMobileNav(action = undefined) {
 }
 
 function closeMobNav() {
+  if (isModalOpen) return;
   mobileMenu.classList.remove("open");
   body.classList.remove("no-scroll");
   burgerBtn.checked = false;
@@ -84,8 +84,6 @@ function openMobNav() {
 }
 
 function indexResize() {
-  console.log(window.innerWidth, window.outerWidth);
-
   if (window.innerWidth >= 769) {
     burgerBtn.checked = false;
     updateMobileNav();

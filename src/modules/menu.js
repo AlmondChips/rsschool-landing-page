@@ -1,5 +1,6 @@
 import { menu } from "./menuList";
 import { menuResize, resetShowBtn } from "./menuLogic";
+import { openModal } from "./menuModal";
 
 let menuList;
 
@@ -56,6 +57,10 @@ function drawCard(item) {
 
   card.appendChild(imgWrapper);
   card.appendChild(descWrapper);
+
+  card.addEventListener("click", () => {
+    openModal(item);
+  });
 
   menuList.appendChild(card);
 }

@@ -24,28 +24,57 @@
   }
 }
 
+@mixin underlineAnimation($bottom-padding) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: $bottom-padding;
+    left: 50%;
+
+    height: 2px;
+    width: 0;
+    background-color: currentColor;
+
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+  }
+
+  &:hover::before {
+    position: absolute;
+    left: 0;
+
+    height: 2px;
+    width: 100%;
+  }
+}
+
 .link {
   transition: text-decoration-color 1s ease;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: transparent;
-  &:hover {
-    text-decoration-color: currentColor;
-  }
+  position: relative;
+
+  @include underlineAnimation(-4px);
 }
 
 .coffee-link,
 .contact-link {
+  position: relative;
   transition: border-color 1s ease;
   border-bottom: solid 2px;
   border-color: transparent;
 
   cursor: pointer;
 
-  &:hover {
-    text-decoration-color: currentColor;
-    border-bottom: solid 2px;
-  }
+  @include underlineAnimation(-2px);
+}
+
+.mobile-nav .coffee-link {
+  @include underlineAnimation(-8px);
 }
 
 @mixin animate-hover($bg-color, $text-color, $border-color) {
@@ -74,4 +103,8 @@
       stroke: $text-color;
     }
   }
+}
+
+input[type="checkbox"] {
+  display: none;
 }
